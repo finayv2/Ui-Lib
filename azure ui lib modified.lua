@@ -64,7 +64,7 @@ local dark_theme = {
 
 
 game:GetService("UserInputService").InputBegan:connect(function(inputObject, gameProcessedEvent)
-    if inputObject.KeyCode == Enum.KeyCode.LeftControl then 
+    if inputObject.KeyCode == Enum.KeyCode.RightControl  then 
 		if game:GetService("CoreGui"):FindFirstChild("uiui").Enabled == true then
 			game:GetService("CoreGui"):FindFirstChild("uiui").Enabled = false
 		else
@@ -72,6 +72,7 @@ game:GetService("UserInputService").InputBegan:connect(function(inputObject, gam
 		end
     end 
 end)
+
 
 if game:GetService("CoreGui"):FindFirstChild("uiui") then game:GetService("CoreGui"):FindFirstChild("uiui"):Destroy() end
 
