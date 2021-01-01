@@ -42,7 +42,7 @@ function Library:CreateWindow(windowname,windowinfo)
     
     FrameCorner.Name = "FrameCorner"
     FrameCorner.Parent = Frame
-    FrameCorner.CornerRadius = UDim2.new(0,6)
+    FrameCorner.CornerRadius = UDim.new(0,6)
     
     DashBoard.Name = "DashBoard"
     DashBoard.Parent = Frame
