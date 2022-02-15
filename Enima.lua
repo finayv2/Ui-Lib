@@ -1341,25 +1341,14 @@ function library:AddWindow(title, options)
 							end)
 
 							function slider_data:Set(new_value)
-                                print('[Debug] Set Slider 1', new_value)
 								new_value = tonumber(new_value) or 0
 								new_value = (((new_value >= 0 and new_value <= 100) and new_value) / 100)
-
 								Resize(indicator, {Size = UDim2.new(new_value or 0, 0, 0, 20)}, options.tween_time)
-								local p = math.floor((new_value or 0) * 100)
 
-								local maxv = slider_options.max
-								local minv = slider_options.min
-								local diff = maxv - minv
-
-								local sel_value = math.floor(((diff / 100) * p) + minv)
-
+							  	local p = math.floor((new_value or 0) * 100)
+								
 								value.Text = tostring(sel_value)
-                                print('[Debug] Set Slider 2', tostring(sel_value))
-								local suc, err = pcall(callback, sel_value)
-                                if err then
-                                    print('[Debug] set slider error', err)
-                                end
+								pcall(callback, sel_value)
 							end
 
 							slider_data:Set(slider_options["min"])
