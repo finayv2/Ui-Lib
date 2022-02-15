@@ -1341,7 +1341,7 @@ function library:AddWindow(title, options)
 							end)
 
 							function slider_data:Set(new_value)
-                                print('[Debug] Set Slider', new_value)
+                                print('[Debug] Set Slider 1', new_value)
 								new_value = tonumber(new_value) or 0
 								new_value = (((new_value >= 0 and new_value <= 100) and new_value) / 100)
 
@@ -1355,10 +1355,10 @@ function library:AddWindow(title, options)
 								local sel_value = math.floor(((diff / 100) * p) + minv)
 
 								value.Text = tostring(sel_value)
-                                print('[Debug] Set Slider', tostring(sel_value))
+                                print('[Debug] Set Slider 2', tostring(sel_value))
 								local suc, err = pcall(callback, sel_value)
                                 if err then
-                                    print('[Debug] Set Slider', err)
+                                    print('[Debug] set slider error', err)
                                 end
 							end
 
