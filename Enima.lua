@@ -1345,7 +1345,7 @@ function library:AddWindow(title, options)
 								new_value = (((new_value >= 0 and new_value <= 100) and new_value) / 100)
 								Resize(indicator, {Size = UDim2.new(new_value or 0, 0, 0, 20)}, options.tween_time)
 
-							  	local p = math.floor((new_value or 0) * 100)
+							  	local sel_value = math.floor((new_value or 0) * 100)
 								
 								value.Text = tostring(sel_value)
 								pcall(callback, sel_value)
