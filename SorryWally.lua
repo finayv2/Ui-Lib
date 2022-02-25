@@ -1220,6 +1220,7 @@ do
              
             
             if Textbox.Changed and not TextBox.Finished then
+                print("Changed from :SetValue")
                 Textbox.Changed();
             end;
         end;
@@ -1233,6 +1234,7 @@ do
             if not TextBox.Finished then return end
                 
             if Text.Changed then
+                print("Text From FocusLost")
                 TextBox.Changed()
             end
         end)
