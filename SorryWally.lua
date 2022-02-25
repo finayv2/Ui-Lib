@@ -1219,7 +1219,7 @@ do
             Box.Text = Text;
              
             
-            if Textbox.Changed and not TextBox.Finished then
+            if Textbox.Changed and not Textbox.Finished then
                 print("Changed from :SetValue")
                 Textbox.Changed();
             end;
@@ -1231,11 +1231,11 @@ do
         end);
         
         Box.FocusLost:Connect(function()
-            if not TextBox.Finished then return end
+            if not Textbox.Finished then return end
                 
-            if Text.Changed then
+            if Textbox.Changed then
                 print("Text From FocusLost")
-                TextBox.Changed()
+                Textbox.Changed()
             end
         end)
 
