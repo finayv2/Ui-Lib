@@ -1219,7 +1219,7 @@ do
             Box.Text = Text;
              
             
-            if Textbox.Changed and not Text.Finished then
+            if Textbox.Changed and not TextBox.Finished then
                 Textbox.Changed();
             end;
         end;
