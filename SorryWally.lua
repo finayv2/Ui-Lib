@@ -1221,7 +1221,7 @@ do
              
             
             if Textbox.Changed and not Textbox.Finished then
-                Textbox.Changed();
+                Textbox.Changed(Textbox.Value);
             end;
         end;
 
@@ -1234,7 +1234,7 @@ do
             if not Textbox.Finished then return end
                 
             if Textbox.Changed then
-                Textbox.Changed()
+                Textbox.Changed(Textbox.Value)
             end
         end)
 
@@ -1244,7 +1244,7 @@ do
 
         function Textbox:OnChanged(Func)
             Textbox.Changed = Func;
-            Func();
+            Func(Textbox.Value);
         end;
 
         Groupbox:AddBlank(5);
