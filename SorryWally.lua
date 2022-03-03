@@ -999,6 +999,7 @@ do
             TextXAlignment = Enum.TextXAlignment.Left;
             ZIndex = 5;
             Parent = Container;
+            TextWrapped = true;
         });
 
         Library:Create('UIListLayout', {
