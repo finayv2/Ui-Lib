@@ -1194,7 +1194,9 @@ function library:AddWindow(title, options)
 					end
 
 					function tab_data:AddSwitch(switch_text, callback) -- [Switch]
-						local switch_data = {}
+						local switch_data = {
+							Value = false
+						}
 
 						switch_text = tostring(switch_text or "New Switch")
 						callback = typeof(callback) == "function" and callback or function()end
@@ -1217,20 +1219,31 @@ function library:AddWindow(title, options)
 							end
 						end)
 
-						local toggled = false
+						
 						switch.MouseButton1Click:Connect(function()
-							toggled = not toggled
-							switch.Text = toggled and utf8.char(10003) or ""
-							pcall(callback, toggled)
+							switch_data.Value = not switch_data.Value
+							switch.Text = switch_data and utf8.char(10003) or ""
+							if switch_data.Changed then
+								switch_data.Changed();
+							end;
+							pcall(callback, switch_data)
 						end)
 
 						function switch_data:Set(bool)
 							toggled = (typeof(bool) == "boolean") and bool or false
 							switch.Text = toggled and utf8.char(10003) or ""
+							if switch_data.Changed then
+								switch_data.Changed();
+							end;
 							pcall(callback,toggled)
 						end
 
-						Toggles[switch_text] = toggled
+						function switch_data:OnChanged(Func)
+							switch_data.Changed = Func;
+            						Func();
+						end
+
+						Toggles[switch_text] = switch_data
 
 						return switch_data, switch
 					end
