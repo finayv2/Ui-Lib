@@ -3,7 +3,7 @@
 	version 1.3a
 	by Singularity (V3rm @ King Singularity) (Discord @ Singularity#5490)
 
-docs = https://pastebin.com/raw/SjcYQ23F
+docs = https://github.com/weakhoes/Roblox-UI-Libs/blob/main/Elerium%20%5BIMGUI%5D%20Lib/Elerium%20%5BIMGUI%5D%20Lib%20Documentation.txt
 --]]
 
 local ui_options = {
@@ -17,6 +17,12 @@ do
 	local imgui = game:GetService("CoreGui"):FindFirstChild("imgui")
 	if imgui then imgui:Destroy() end
 end
+
+local Toggles = {};
+local Options = {};
+
+getgenv().Toggles = Toggles;
+getgenv().Options = Options;
 
 local imgui = Instance.new("ScreenGui")
 local Prefabs = Instance.new("Frame")
@@ -1224,6 +1230,8 @@ function library:AddWindow(title, options)
 							pcall(callback,toggled)
 						end
 
+						Toggles[switch_text] = toggled
+
 						return switch_data, switch
 					end
 
@@ -1252,7 +1260,8 @@ function library:AddWindow(title, options)
 								end
 							end
 						end)
-
+						Options[textbox_text] = textbox
+						
 						return textbox
 					end
 
@@ -1353,7 +1362,9 @@ function library:AddWindow(title, options)
 
 							slider_data:Set(slider_options["min"])
 						end
-
+						
+						Options[slider_text] = slider_data
+						
 						return slider_data, slider
 					end
 
