@@ -1222,7 +1222,7 @@ function library:AddWindow(title, options)
 						
 						switch.MouseButton1Click:Connect(function()
 							switch_data.Value = not switch_data.Value
-							switch.Text = switch_data and utf8.char(10003) or ""
+							switch.Text = switch_data.Value and utf8.char(10003) or ""
 							if switch_data.Changed then
 								switch_data.Changed();
 							end;
