@@ -1963,7 +1963,7 @@ function library:AddWindow(title, options)
 						button:GetChildren()[1].ZIndex = button:GetChildren()[1].ZIndex + (windows * 10)
 
 						folder.Parent = new_tab
-						button.Text = "      " .. folder_name
+						button.Text = "         " .. folder_name
 
 						spawn(function()
 							while true do
