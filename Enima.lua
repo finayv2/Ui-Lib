@@ -1,7 +1,6 @@
 --[[
 	ui-engine-v2
 	version 1.3a
-	by Singularity (V3rm @ King Singularity) (Discord @ Singularity#5490)
 
 docs = https://github.com/weakhoes/Roblox-UI-Libs/blob/main/Elerium%20%5BIMGUI%5D%20Lib/Elerium%20%5BIMGUI%5D%20Lib%20Documentation.txt
 --]]
